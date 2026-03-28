@@ -6,31 +6,35 @@ const authRouter = require("./routes/auth");
 const ordersRouter = require("./routes/orders");
 const aiRouter = require("./routes/ai");
 
-
 function createApp() {
   const app = express();
 
+  // ✅ CORS (FIXED)
   app.use(
     cors({
-      origin: true,
+      origin: "https://smart-food-ordering-website.vercel.app",
       credentials: true,
+      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+      allowedHeaders: ["Content-Type", "Authorization"],
     })
   );
+
+  // ✅ Handle preflight requests
+  // app.options("*", cors());
+
+  // ✅ Body parser
   app.use(express.json({ limit: "1mb" }));
 
-  // Health
+  // ✅ Health check
   app.get("/health", (req, res) => res.json({ ok: true }));
 
-  // API routes
-  app.use("/menu", menuRouter);
-  app.use("/api/menu", menuRouter); // convenience alias for frontend
+  // ✅ API Routes (FIXED with /api)
+  app.use("/api/menu", menuRouter);
+  app.use("/api/auth", authRouter);
+  app.use("/api/orders", ordersRouter);
+  app.use("/api/ai", aiRouter);
 
-  app.use("/auth", authRouter);
-  app.use("/orders", ordersRouter);
-  app.use("/ai", aiRouter);
-
-  // Error handler
-  // eslint-disable-next-line no-unused-vars
+  // ✅ Error handler
   app.use((err, req, res, next) => {
     console.error(err);
     res.status(500).json({ error: "Internal Server Error" });
@@ -40,5 +44,3 @@ function createApp() {
 }
 
 module.exports = { createApp };
-
-
