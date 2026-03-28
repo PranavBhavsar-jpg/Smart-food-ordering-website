@@ -40,7 +40,7 @@ This platform is designed as a **real-time campus food ordering system** to stre
 ### 🛒 Cart
 ![cart](assets/cart.png)
 
-### Loginpage
+### 🔐 Loginpage
 ![loginpage](assets/loginpage.png)
 
 ### 💳 Payment
