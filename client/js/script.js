@@ -1,6 +1,6 @@
 // --- CONFIG ---
 function getApiBase() {
-  return "https://smart-food-ordering-website.onrender.com";
+  return "https://smart-food-ordering-website.onrender.com/api";
 }
 const API_BASE = getApiBase();
 
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // --- API CALLS ---
 async function fetchCategories() {
   try {
-    const res = await fetch(`${API_BASE}/menu/categories`);
+    const res = await fetch(`${API_BASE}/api/menu/categories`);
     const data = await res.json();
 
     console.log("API Response:", data); // ✅ ADD THIS
@@ -39,7 +39,7 @@ async function fetchCategories() {
 
 async function fetchMenu() {
   try {
-    const res = await fetch(`${API_BASE}/menu`);
+    const res = await fetch(`${API_BASE}/api/menu`);
     let data;
     try {
       data = await res.json();
@@ -316,7 +316,7 @@ async function handleCODCheckout() {
       quantity: i.qty
     }));
 
-    const res = await fetch(`${API_BASE}/orders`, {
+    const res = await fetch(`${API_BASE}/api/orders`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -366,7 +366,7 @@ async function handleOnlineCheckout() {
     }));
 
     // 1. Create Razorpay order on backend
-    const createRes = await fetch(`${API_BASE}/orders/payments/razorpay/order`, {
+    const createRes = await fetch(`${API_BASE}/api/orders/payments/razorpay/order`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -388,7 +388,7 @@ async function handleOnlineCheckout() {
       order_id: orderData.orderId,
       handler: async function (response) {
         // 3. Verify and complete order on backend
-        const verifyRes = await fetch(`${API_BASE}/orders`, {
+        const verifyRes = await fetch(`${API_BASE}/api/orders`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -472,7 +472,7 @@ async function handleStudentLogin() {
   }
 
   try {
-    let res = await fetch(`${API_BASE}/auth/login`, {
+    let res = await fetch(`${API_BASE}/api/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password })
@@ -480,7 +480,7 @@ async function handleStudentLogin() {
 
     if (!res.ok) {
       // try register
-      res = await fetch(`${API_BASE}/auth/register`, {
+      res = await fetch(`${API_BASE}/api/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password })
@@ -585,7 +585,7 @@ async function openOrdersModal() {
   list.innerHTML = `<div class="py-20 flex justify-center"><i class="fas fa-spinner fa-spin text-3xl text-primary"></i></div>`;
 
   try {
-    const res = await fetch(`${API_BASE}/orders/me`, {
+    const res = await fetch(`${API_BASE}/api/orders/me`, {
       headers: { "Authorization": `Bearer ${token}` }
     });
     const orders = await res.json();
