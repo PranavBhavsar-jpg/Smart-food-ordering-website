@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TCET Canteen | Modern Food Delivery</title>
-    
+
     <!-- Google Font: Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <!-- External Libraries -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -26,6 +28,7 @@
         }
     </script>
 </head>
+
 <body class="bg-gray-50 pb-20">
 
     <!-- Sticky Navbar -->
@@ -34,7 +37,8 @@
         <div class="flex items-center gap-4 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
             <img src="images/tcetshieldlogo.jpg" alt="TCET Logo" class="w-12 h-12 object-contain">
             <div class="hidden sm:block">
-                <h1 class="font-bold text-xl leading-tight text-gray-800 tracking-tight">TCET <span class="text-primary">Canteen</span></h1>
+                <h1 class="font-bold text-xl leading-tight text-gray-800 tracking-tight">TCET <span
+                        class="text-primary">Canteen</span></h1>
                 <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-widest">Tasty & Hygienic</p>
             </div>
         </div>
@@ -43,8 +47,7 @@
         <div class="flex-1 max-w-md mx-6 hidden md:block">
             <div class="search-container flex items-center">
                 <i class="fas fa-search text-gray-400 ml-4"></i>
-                <input type="text" id="search-input" 
-                    placeholder="Search for your favorite food..."
+                <input type="text" id="search-input" placeholder="Search for your favorite food..."
                     class="w-full bg-transparent border-none py-3 px-4 focus:ring-0 text-sm outline-none"
                     onkeyup="filterMenu()">
             </div>
@@ -52,16 +55,22 @@
 
         <!-- Right Side Icons -->
         <div class="flex items-center gap-2 sm:gap-6">
-            <button onclick="openOrdersModal()" class="w-10 h-10 rounded-full hover:bg-orange-50 text-gray-600 transition flex items-center justify-center relative group">
+            <button onclick="openOrdersModal()"
+                class="w-10 h-10 rounded-full hover:bg-orange-50 text-gray-600 transition flex items-center justify-center relative group">
                 <i class="fas fa-history text-lg"></i>
-                <span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap">Orders</span>
+                <span
+                    class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap">Orders</span>
             </button>
-            <button onclick="toggleCart()" class="w-10 h-10 rounded-full hover:bg-orange-50 text-gray-600 transition flex items-center justify-center relative group hidden sm:flex">
+            <button onclick="toggleCart()"
+                class="w-10 h-10 rounded-full hover:bg-orange-50 text-gray-600 transition flex items-center justify-center relative group hidden sm:flex">
                 <i class="fas fa-shopping-bag text-lg"></i>
-                <span id="nav-cart-count" class="absolute top-1 right-1 w-4 h-4 bg-primary text-white text-[10px] font-bold rounded-full flex items-center justify-center border-2 border-white">0</span>
-                <span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap">Cart</span>
+                <span id="nav-cart-count"
+                    class="absolute top-1 right-1 w-4 h-4 bg-primary text-white text-[10px] font-bold rounded-full flex items-center justify-center border-2 border-white">0</span>
+                <span
+                    class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap">Cart</span>
             </button>
-            <button onclick="openLoginModal()" class="btn-gradient px-6 py-2.5 text-sm hidden sm:block" id="login-btn-nav">
+            <button onclick="openLoginModal()" class="btn-gradient px-6 py-2.5 text-sm hidden sm:block"
+                id="login-btn-nav">
                 <i class="fas fa-user-circle mr-2"></i>
                 <span id="login-button-label">Student Login</span>
             </button>
@@ -76,16 +85,16 @@
     <header class="pt-28 pb-12 px-6 sm:px-12 max-w-7xl mx-auto w-full">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-2">TCET Canteen <span class="text-primary italic">Favorites</span></h2>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-2">TCET Canteen <span
+                        class="text-primary italic">Favorites</span></h2>
                 <p class="text-gray-500 font-medium">Delicious meals delivered right to your college desk.</p>
             </div>
-            
+
             <!-- Mobile Search Bar -->
             <div class="w-full md:hidden mt-4">
                 <div class="search-container flex items-center">
                     <i class="fas fa-search text-gray-400 ml-4"></i>
-                    <input type="text" id="search-input-mobile" 
-                        placeholder="Search for food..."
+                    <input type="text" id="search-input-mobile" placeholder="Search for food..."
                         class="w-full bg-transparent border-none py-4 px-4 focus:ring-0 text-sm outline-none"
                         onkeyup="filterMenu()">
                 </div>
@@ -106,7 +115,7 @@
 
     <!-- Main Content -->
     <main class="px-6 sm:px-12 max-w-7xl mx-auto pb-24 w-full">
-        
+
         <!-- Menu Grid -->
         <div class="menu-grid" id="menu-container">
             <!-- Skeleton Loaders (8 items) -->
@@ -170,7 +179,8 @@
                     </div>
                     <p class="text-primary text-xs font-bold uppercase tracking-widest">Tasty & Hygienic</p>
                     <p class="text-sm leading-relaxed max-w-xs">
-                        Your campus food ordering platform designed for quick and hygienic meals. Skip the queue and enjoy your break.
+                        Your campus food ordering platform designed for quick and hygienic meals. Skip the queue and
+                        enjoy your break.
                     </p>
                     <div class="flex gap-3 pt-4">
                         <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
@@ -187,6 +197,12 @@
                         <li><a onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="footer-link">Menu</a></li>
                         <li><a onclick="openOrdersModal()" class="footer-link">My Orders</a></li>
                         <li><a onclick="toggleCart()" class="footer-link">Cart</a></li>
+                        <hr class="my-3 border-gray-700">
+
+                        <li><a href="privacy.html" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="footer-link">Terms & Conditions</a></li>
+                        <li><a href="refund.html" class="footer-link">Refund Policy</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact Us</a></li>
                     </ul>
                 </div>
 
@@ -194,9 +210,12 @@
                 <div>
                     <h3 class="footer-heading">For TCET Students</h3>
                     <div class="space-y-4 text-sm">
-                        <p class="flex items-center gap-3"><i class="fas fa-bolt text-primary text-xs"></i> Fast ordering for busy college days</p>
-                        <p class="flex items-center gap-3"><i class="fas fa-user-clock text-primary text-xs"></i> Skip long canteen queues</p>
-                        <p class="flex items-center gap-3"><i class="fas fa-leaf text-primary text-xs"></i> Fresh meals prepared daily</p>
+                        <p class="flex items-center gap-3"><i class="fas fa-bolt text-primary text-xs"></i> Fast
+                            ordering for busy college days</p>
+                        <p class="flex items-center gap-3"><i class="fas fa-user-clock text-primary text-xs"></i> Skip
+                            long canteen queues</p>
+                        <p class="flex items-center gap-3"><i class="fas fa-leaf text-primary text-xs"></i> Fresh meals
+                            prepared daily</p>
                         <p class="pt-2 text-xs font-medium text-white italic">Made with ❤️ for TCET Students</p>
                     </div>
                 </div>
@@ -211,7 +230,8 @@
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="fas fa-envelope text-primary"></i>
-                            <a href="mailto:support@tcetcanteen.com" class="hover:text-primary transition">support@tcetcanteen.com</a>
+                            <a href="mailto:support@tcetcanteen.com"
+                                class="hover:text-primary transition">support@tcetcanteen.com</a>
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="fas fa-clock text-primary"></i>
@@ -232,7 +252,8 @@
     <div onclick="toggleCart()" class="floating-cart sm:hidden">
         <div class="relative">
             <i class="fas fa-shopping-bag text-xl"></i>
-            <span id="floating-cart-count" class="absolute -top-2 -right-2 w-5 h-5 bg-white text-primary text-[10px] font-bold rounded-full flex items-center justify-center border-2 border-primary">0</span>
+            <span id="floating-cart-count"
+                class="absolute -top-2 -right-2 w-5 h-5 bg-white text-primary text-[10px] font-bold rounded-full flex items-center justify-center border-2 border-primary">0</span>
         </div>
     </div>
 
@@ -249,14 +270,16 @@
                 </div>
                 <div>
                     <h2 class="text-xl font-bold text-gray-900">My Cart</h2>
-                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest"><span id="cart-items-count">0</span> Items in cart</p>
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest"><span
+                            id="cart-items-count">0</span> Items in cart</p>
                 </div>
             </div>
-            <button onclick="toggleCart()" class="w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center text-gray-400 transition">
+            <button onclick="toggleCart()"
+                class="w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center text-gray-400 transition">
                 <i class="fas fa-times text-xl"></i>
             </button>
         </div>
-        
+
         <!-- Cart Items (Scrollable) -->
         <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-6 cart-items">
             <!-- Empty Cart State (Default) -->
@@ -265,7 +288,8 @@
                     <i class="fas fa-shopping-bag text-4xl text-gray-200"></i>
                 </div>
                 <h3 class="text-lg font-bold text-gray-800 mb-2">Your cart is empty</h3>
-                <p class="text-sm text-gray-500 mb-8 max-w-[200px]">Looks like you haven't added anything to your cart yet.</p>
+                <p class="text-sm text-gray-500 mb-8 max-w-[200px]">Looks like you haven't added anything to your cart
+                    yet.</p>
                 <button onclick="toggleCart()" class="btn-gradient px-8 py-3 rounded-2xl">Start Ordering</button>
             </div>
         </div>
@@ -276,16 +300,24 @@
             <div class="mb-6">
                 <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Choose Payment Method</p>
                 <div class="grid grid-cols-2 gap-3">
-                    <label class="relative flex items-center gap-3 p-4 border-2 border-primary bg-orange-50/50 rounded-2xl cursor-pointer transition" id="pay-method-online-label">
-                        <input type="radio" name="payment-method" value="online" checked class="absolute opacity-0" onchange="updatePaymentUI()">
-                        <div class="w-8 h-8 rounded-lg bg-white shadow-sm flex items-center justify-center text-primary">
+                    <label
+                        class="relative flex items-center gap-3 p-4 border-2 border-primary bg-orange-50/50 rounded-2xl cursor-pointer transition"
+                        id="pay-method-online-label">
+                        <input type="radio" name="payment-method" value="online" checked class="absolute opacity-0"
+                            onchange="updatePaymentUI()">
+                        <div
+                            class="w-8 h-8 rounded-lg bg-white shadow-sm flex items-center justify-center text-primary">
                             <i class="fas fa-credit-card"></i>
                         </div>
                         <span class="text-xs font-bold text-gray-700">Online</span>
                     </label>
-                    <label class="relative flex items-center gap-3 p-4 border-2 border-gray-100 bg-gray-50/50 rounded-2xl cursor-pointer transition" id="pay-method-cod-label">
-                        <input type="radio" name="payment-method" value="cod" class="absolute opacity-0" onchange="updatePaymentUI()">
-                        <div class="w-8 h-8 rounded-lg bg-white shadow-sm flex items-center justify-center text-gray-400">
+                    <label
+                        class="relative flex items-center gap-3 p-4 border-2 border-gray-100 bg-gray-50/50 rounded-2xl cursor-pointer transition"
+                        id="pay-method-cod-label">
+                        <input type="radio" name="payment-method" value="cod" class="absolute opacity-0"
+                            onchange="updatePaymentUI()">
+                        <div
+                            class="w-8 h-8 rounded-lg bg-white shadow-sm flex items-center justify-center text-gray-400">
                             <i class="fas fa-hand-holding-usd"></i>
                         </div>
                         <span class="text-xs font-bold text-gray-600">Cash</span>
@@ -309,7 +341,8 @@
                 </div>
             </div>
 
-            <button onclick="checkout()" class="w-full btn-gradient py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 shadow-xl shadow-orange-200">
+            <button onclick="checkout()"
+                class="w-full btn-gradient py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 shadow-xl shadow-orange-200">
                 Proceed to Checkout <i class="fas fa-arrow-right text-sm"></i>
             </button>
         </div>
@@ -320,38 +353,45 @@
         <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeLoginModal()"></div>
         <div class="bg-white rounded-[40px] p-8 w-full max-w-md relative z-10 shadow-2xl overflow-hidden">
             <div class="absolute top-0 right-0 p-8">
-                <button onclick="closeLoginModal()" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-400">
+                <button onclick="closeLoginModal()"
+                    class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-400">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
-            
+
             <div class="mb-8 pt-4">
-                <div class="w-16 h-16 bg-orange-50 rounded-3xl flex items-center justify-center text-primary text-3xl mb-6">
+                <div
+                    class="w-16 h-16 bg-orange-50 rounded-3xl flex items-center justify-center text-primary text-3xl mb-6">
                     <i class="fas fa-user-graduate"></i>
                 </div>
                 <h2 class="text-3xl font-extrabold text-gray-900 tracking-tight">Student Login</h2>
                 <p class="text-gray-500 font-medium mt-2">Access your TCET Canteen account to start ordering.</p>
             </div>
-            
+
             <div class="space-y-4">
                 <div class="relative">
                     <i class="fas fa-user absolute left-5 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                    <input id="login-name" type="text" placeholder="Full Name" class="w-full bg-gray-50 border-none rounded-2xl pl-14 pr-6 py-4 focus:ring-2 focus:ring-primary transition outline-none font-medium">
+                    <input id="login-name" type="text" placeholder="Full Name"
+                        class="w-full bg-gray-50 border-none rounded-2xl pl-14 pr-6 py-4 focus:ring-2 focus:ring-primary transition outline-none font-medium">
                 </div>
                 <div class="relative">
                     <i class="fas fa-envelope absolute left-5 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                    <input id="login-email" type="email" placeholder="College Email" class="w-full bg-gray-50 border-none rounded-2xl pl-14 pr-6 py-4 focus:ring-2 focus:ring-primary transition outline-none font-medium">
+                    <input id="login-email" type="email" placeholder="College Email"
+                        class="w-full bg-gray-50 border-none rounded-2xl pl-14 pr-6 py-4 focus:ring-2 focus:ring-primary transition outline-none font-medium">
                 </div>
                 <div class="relative">
                     <i class="fas fa-lock absolute left-5 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                    <input id="login-password" type="password" placeholder="Password" class="w-full bg-gray-50 border-none rounded-2xl pl-14 pr-6 py-4 focus:ring-2 focus:ring-primary transition outline-none font-medium">
+                    <input id="login-password" type="password" placeholder="Password"
+                        class="w-full bg-gray-50 border-none rounded-2xl pl-14 pr-6 py-4 focus:ring-2 focus:ring-primary transition outline-none font-medium">
                 </div>
             </div>
 
-            <button onclick="handleStudentLogin()" class="w-full btn-gradient py-5 mt-8 rounded-2xl font-bold text-lg shadow-xl shadow-orange-100">
+            <button onclick="handleStudentLogin()"
+                class="w-full btn-gradient py-5 mt-8 rounded-2xl font-bold text-lg shadow-xl shadow-orange-100">
                 Sign In / Register
             </button>
-            <p id="login-error" class="mt-4 text-sm text-center text-red-500 font-bold hidden bg-red-50 py-3 rounded-xl"></p>
+            <p id="login-error"
+                class="mt-4 text-sm text-center text-red-500 font-bold hidden bg-red-50 py-3 rounded-xl"></p>
         </div>
     </div>
 
@@ -364,11 +404,12 @@
                     <h2 class="text-3xl font-extrabold text-gray-900 tracking-tight">Order History</h2>
                     <p class="text-sm text-gray-500 font-medium">Track and reorder your past favorites.</p>
                 </div>
-                <button onclick="closeOrdersModal()" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-400">
+                <button onclick="closeOrdersModal()"
+                    class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-400">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
-            
+
             <div id="orders-list" class="space-y-4 overflow-y-auto flex-1 pr-4 custom-scrollbar">
                 <!-- Orders injected by JS -->
                 <div class="flex flex-col items-center justify-center py-20 text-center opacity-50">
@@ -380,35 +421,47 @@
     </div>
 
     <!-- Success Modal -->
-    <div id="success-modal" class="fixed inset-0 z-[150] flex items-center justify-center bg-black/70 backdrop-blur-md hidden opacity-0 transition-all duration-300 p-6">
-        <div class="bg-white rounded-[50px] p-10 w-full max-w-md text-center transform scale-90 transition-all duration-300 shadow-[0_30px_100px_rgba(0,0,0,0.2)]" id="success-content">
-            <div class="w-24 h-24 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-8 text-green-500 text-4xl shadow-lg shadow-green-100 animate-bounce">
+    <div id="success-modal"
+        class="fixed inset-0 z-[150] flex items-center justify-center bg-black/70 backdrop-blur-md hidden opacity-0 transition-all duration-300 p-6">
+        <div class="bg-white rounded-[50px] p-10 w-full max-w-md text-center transform scale-90 transition-all duration-300 shadow-[0_30px_100px_rgba(0,0,0,0.2)]"
+            id="success-content">
+            <div
+                class="w-24 h-24 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-8 text-green-500 text-4xl shadow-lg shadow-green-100 animate-bounce">
                 <i class="fas fa-check-circle"></i>
             </div>
             <h3 class="text-3xl font-black text-gray-900 mb-2">Bon Appétit!</h3>
             <p class="text-gray-500 font-medium mb-8">Your order is being prepared with care.</p>
-            
-            <div class="mb-8 p-6 bg-orange-50/50 rounded-[32px] border-2 border-orange-100 relative overflow-hidden group">
-                <div class="absolute -right-4 -top-4 w-20 h-20 bg-primary opacity-[0.03] rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+
+            <div
+                class="mb-8 p-6 bg-orange-50/50 rounded-[32px] border-2 border-orange-100 relative overflow-hidden group">
+                <div
+                    class="absolute -right-4 -top-4 w-20 h-20 bg-primary opacity-[0.03] rounded-full group-hover:scale-150 transition-transform duration-700">
+                </div>
                 <div class="text-[10px] font-black text-primary uppercase tracking-[0.2em] mb-2">Order ID</div>
-                <div id="success-token" class="text-3xl font-black text-gray-900 tracking-tight mb-3">TCET-ORD-XXXX</div>
-                <div class="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full text-xs font-bold text-primary shadow-sm">
-                    <i class="fas fa-clock"></i> Estimated Ready Time: <span id="success-eta" class="text-gray-900 ml-1">15 mins</span>
+                <div id="success-token" class="text-3xl font-black text-gray-900 tracking-tight mb-3">TCET-ORD-XXXX
+                </div>
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full text-xs font-bold text-primary shadow-sm">
+                    <i class="fas fa-clock"></i> Estimated Ready Time: <span id="success-eta"
+                        class="text-gray-900 ml-1">15 mins</span>
                 </div>
             </div>
 
-            <div id="ai-chef-note" class="mb-10 text-sm text-orange-800 font-medium italic bg-white p-6 rounded-[24px] border border-orange-100 shadow-sm leading-relaxed">
+            <div id="ai-chef-note"
+                class="mb-10 text-sm text-orange-800 font-medium italic bg-white p-6 rounded-[24px] border border-orange-100 shadow-sm leading-relaxed">
                 <!-- AI content -->
             </div>
 
-            <button onclick="closeSuccess()" class="w-full bg-gray-900 text-white py-5 rounded-2xl font-bold text-lg hover:bg-black transition shadow-xl shadow-gray-200">
+            <button onclick="closeSuccess()"
+                class="w-full bg-gray-900 text-white py-5 rounded-2xl font-bold text-lg hover:bg-black transition shadow-xl shadow-gray-200">
                 Awesome, thanks!
             </button>
         </div>
     </div>
 
     <!-- Toast Container -->
-    <div id="toast-container" class="fixed bottom-32 left-1/2 -translate-x-1/2 z-[200] space-y-3 pointer-events-none"></div>
+    <div id="toast-container" class="fixed bottom-32 left-1/2 -translate-x-1/2 z-[200] space-y-3 pointer-events-none">
+    </div>
 
     <!-- Razorpay Checkout -->
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
@@ -416,4 +469,5 @@
     <!-- App Scripts -->
     <script src="js/script.js"></script>
 </body>
+
 </html>
