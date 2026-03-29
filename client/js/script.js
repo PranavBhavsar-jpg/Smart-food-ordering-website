@@ -1,6 +1,6 @@
 // --- CONFIG ---
 function getApiBase() {
-  return "https://smart-food-ordering-website.onrender.com/api";
+  return "https://smart-food-ordering-website.onrender.com";
 }
 const API_BASE = getApiBase();
 
