@@ -609,7 +609,7 @@ async function openOrdersModal() {
               </span>
           </div>
           <div class="text-xs text-gray-500 mb-4">
-            ${order.items.map(i => `${i.qty}x ${i.name}`).join(", ")}
+            ${order.items.map(i => `${i.quantity || 1}x ${i.name}`).join(", ")}
           </div>
           <div class="flex justify-between items-center pt-4 border-t border-gray-200/50">
               <span class="text-sm font-bold text-gray-900">₹${order.total}</span>
