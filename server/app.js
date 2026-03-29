@@ -12,7 +12,11 @@ function createApp() {
   // ✅ CORS (FIXED)
   app.use(
     cors({
-      origin: "https://smart-food-ordering-website.vercel.app",
+          origin: [
+      "http://127.0.0.1:5500",
+      "http://localhost:5500",
+      "https://smart-food-ordering-website.vercel.app"
+    ],
       credentials: true,
       methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
       allowedHeaders: ["Content-Type", "Authorization"],

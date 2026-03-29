@@ -588,7 +588,9 @@ async function openOrdersModal() {
     const res = await fetch(`${API_BASE}/api/orders/me`, {
       headers: { "Authorization": `Bearer ${token}` }
     });
-    const orders = await res.json();
+    const data = await res.json();
+    const orders = data.orders || [];
+    console.log("Orders:", orders);
 
     if (orders.length === 0) {
       list.innerHTML = `<div class="py-20 text-center opacity-50"><i class="fas fa-box-open text-5xl mb-4"></i><p>No orders yet</p></div>`;
@@ -610,7 +612,7 @@ async function openOrdersModal() {
             ${order.items.map(i => `${i.qty}x ${i.name}`).join(", ")}
           </div>
           <div class="flex justify-between items-center pt-4 border-t border-gray-200/50">
-              <span class="text-sm font-bold text-gray-900">₹${order.totalAmount}</span>
+              <span class="text-sm font-bold text-gray-900">₹${order.total}</span>
               <span class="text-[10px] text-gray-400 font-medium">${new Date(order.createdAt).toLocaleDateString()}</span>
           </div>
       </div>
